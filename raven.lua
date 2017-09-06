@@ -406,7 +406,7 @@ function _M.send_report(self, json, conf)
       end
    end
 
-   json.server_name = _get_server_name()
+   json.server_name = "openresty"
 
    local json_str = json_encode(json)
    local ok, err
@@ -678,3 +678,4 @@ if arg and arg[1] and arg[1] == "test" then
 end
 
 return _M
+
