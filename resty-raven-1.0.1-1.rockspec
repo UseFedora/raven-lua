@@ -1,5 +1,5 @@
 package = "resty-raven"
- version = "1.0-2"
+ version = "1.0.1-1"
  source = {
     url = "git://github.com/UseFedora/raven-lua",
  }

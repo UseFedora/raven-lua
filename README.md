@@ -29,6 +29,16 @@ Synopsis
        print(err)
     end
 
+    -- Send a message to sentry aggregated by first string in message table with rest as parameters
+    local msg = {"%s is %s", "Sentry", "realtime event logging and aggregation platform."}
+    local id, err = rvn:captureMessage(
+      msg,
+      { tags = { abc = "def" } } -- optional
+    )
+    if not id then
+       print(err)
+    end
+
     -- Send an exception to sentry
     local exception = {{
        ["type"]= "SyntaxError",
