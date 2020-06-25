@@ -91,7 +91,7 @@ function test_capture_message()
       http_respond(client)
 
       assert_not_nil(json)
-      assert_equal("undefined", json.server_name)
+      assert_equal("openresty", json.server_name)
       assert_equal("Sentry is a realtime event logging and aggregation platform.", json.message)
       assert_equal("lua", json.platform)
       assert_not_nil(string_match(json.culprit, "tests/test_http.lua:%d+"))
@@ -122,7 +122,7 @@ function test_capture_exception()
       http_respond(client)
 
       assert_not_nil(json)
-      assert_equal("undefined", json.server_name)
+      assert_equal("openresty", json.server_name)
       assert_equal("lua", json.platform)
       assert_not_nil(string_match(json.culprit, "tests/test_http.lua:%d+"))
       -- Example timestamp: 2014-03-07T00:17:47
