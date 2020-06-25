@@ -359,7 +359,15 @@ function _M.captureMessage(self, message, conf)
    end
 
    clear_tab(_json)
-   _json.message = message
+   if type(message) == "table" then
+      local msg =  message[1]
+      table.remove(message, 1)
+      local params = message
+      setmetatable(params, json.array_mt)
+      _json["sentry.interfaces.Message"] = { message = msg, params = params }
+   else
+      _json.message = message
+    end
 
    _json.culprit = self.get_culprit(conf.trace_level)
 
